@@ -1,0 +1,11 @@
+{
+    "username" : "giacomo monaco",
+    "email": "am@crgv.com",
+    "password": "bf383e8469e98b44895d61b821748ae1",
+    "details" : {
+        "firstName": "giacomo",
+        "lastName": "monaco",
+        "gender": "male",
+        "age": 50
+    }
+}
