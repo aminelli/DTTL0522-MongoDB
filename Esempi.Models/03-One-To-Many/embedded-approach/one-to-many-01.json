@@ -1,0 +1,29 @@
+{
+    "_id": 1,
+    "username": "giacomo monaco",
+    "email": "am@crgv.com",
+    "password": "bf383e8469e98b44895d61b821748ae1",
+    "details": {
+        "firstName": "giacomo",
+        "lastName": "monaco",
+        "gender": "male",
+        "age": 50
+    },
+    "address": [{
+            "street": "Address 1, 111",
+            "city": "City One",
+            "state": "State One",
+            "type": "billing"
+        }, {
+            "street": "Address 2, 222",
+            "city": "City Two",
+            "state": "State Two",
+            "type": "shipping"
+        }, {
+            "street": "Address 3, 333",
+            "city": "City Three",
+            "state": "State Three",
+            "type": "shipping"
+        }
+    ]
+}

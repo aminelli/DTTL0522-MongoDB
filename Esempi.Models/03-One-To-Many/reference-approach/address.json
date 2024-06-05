@@ -1,0 +1,25 @@
+{
+    "_id": 1,
+    "street": "Address 1, 111",
+    "city": "City One",
+    "state": "State One",
+    "type": "billing",
+    "customer_id": 1
+} 
+{
+    "_id": 2,
+    "street": "Address 2, 222",
+    "city": "City Two",
+    "state": "State Two",
+    "type": "shipping",
+    "customer_id": 1
+}
+{
+    "_id": 3,
+    "street": "Address 3, 333",
+    "city": "City Three",
+    "state": "State Three",
+    "type": "shipping",
+    "customer_id": 1
+}
+
