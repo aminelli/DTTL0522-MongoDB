@@ -1,0 +1,25 @@
+{
+    "id": 1,
+    "title": "MongoDB Data Modeling Blog post",
+    "body": "MongoDB Data Modeling....",
+    "author": "Wilson da Rocha França",
+    "date": "ISODate('2014-11-19')",
+    "comments": [
+        {
+            "name": "Mike",
+            "email" : "mike@mike.com",
+            "comment": "Mike comment...."
+        },
+        {
+            "name": "Tom",
+            "email" : "tom@tom.com",
+            "comment": "Tom comment...."
+        },
+        {
+            "name": "Yuri",
+            "email" : "yuri@yuri.com",
+            "comment": "Yuri comment...."
+        }
+    ],
+    "tags": ["mongodb", "modeling", "nosql"]
+}
