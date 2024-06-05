@@ -12,6 +12,8 @@
 // Select the database to use.
 use('mongodbVSCodePlaygroundDB');
 
+
+
 // Insert a few documents into the sales collection.
 db.getCollection('sales').insertMany([
   { 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
