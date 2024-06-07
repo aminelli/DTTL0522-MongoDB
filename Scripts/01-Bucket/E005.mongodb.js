@@ -4,7 +4,7 @@ use('E01-Bucket');
 
 db.trades2.updateOne(
   { 
-    "_id": /^123_/,
+    "_id": /^143_/,
      "count": { $lt: 10 } 
   },
   {
@@ -17,7 +17,7 @@ db.trades2.updateOne(
         }
    },
    "$inc": { "count": 1 },
-   "$setOnInsert": { "_id": "123_1698939791", "customerId": 123 }
+   "$setOnInsert": { "_id": "143_1698939791", "customerId": 143 }
   },
   { upsert: true }
 )
