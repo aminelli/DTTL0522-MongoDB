@@ -64,11 +64,16 @@ const client = new MongoClient(uri);
             }
            //, transactionOptions);
            );
+           await session.commitTransaction();
            
-        } finally {
+        } catch (error)  {
+            await session.abortTransaction();
+            throw error;
+        } finally {            
             await session.endSession();
             await client.close();
         }
-  }
+    }
+  
   
   run().catch(console.dir);
