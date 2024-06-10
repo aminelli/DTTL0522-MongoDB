@@ -10,6 +10,7 @@ const client = new MongoClient(uri);
 async function run() {
   try {
     const db = client.db('db-schema-val');
+ 
 
     let exist = false;
 
@@ -94,6 +95,23 @@ async function run() {
         address: {
           city: "NYC",
           street: "33rd Street"
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
+    // ???
+    try {
+      await collStudents.insertOne({
+        name: "Alice",
+        year: new NumberInt(2019),
+        major: "History",
+        gpa: new Double(3.0),
+        address: {
+          city: "NYC",
+          street: "33rd Street",
+          nr: "12A"
         }
       })
     } catch (error) {
