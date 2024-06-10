@@ -35,9 +35,11 @@ async function run() {
       }
     })
 
+    const collStudents = db.collection("students");
+
     // Inserimentp di un documento non valido
     try {
-      db.students.insertOne({
+      collStudents.insertOne({
         name: "Alice",
         year: Int32(2019),
         major: "History",
@@ -53,7 +55,7 @@ async function run() {
 
     // Inserimento di un documento valido
     try {
-      db.students.insertOne({
+      collStudents.insertOne({
         name: "Alice",
         year: NumberInt(2019),
         major: "History",
