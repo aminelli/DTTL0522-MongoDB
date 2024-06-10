@@ -83,7 +83,7 @@ async function run() {
             password: {
               bsonType: "string",
               minLength: 6,
-              maxLength: 8,
+              maxLength: 10,
               description: "must be a string of at least 12 characters, and is required"
             }
           }
@@ -93,7 +93,7 @@ async function run() {
 
     await coll.insertOne(
       {
-        "username" : "aminelli",
+        "username" : "pippo2",
         "password": "01234567"
       }
     )
