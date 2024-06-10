@@ -1,4 +1,7 @@
 const { MongoClient } = require("mongodb");
+var NumberInt = require("mongodb").Int32;
+var Double = require("mongodb").Double;
+
 
 // Replace the uri string with your connection string.
 const uri = "mongodb://root:Corso2024@52.178.220.25:27017/?tls=false";
