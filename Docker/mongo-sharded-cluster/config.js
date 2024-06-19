@@ -21,7 +21,7 @@ rs.initiate({ _id: "rep-sh01", members: [{ _id: 0, host: "mongo-sh01-01:28017" }
 // INIZIALIZAZIONE REPLICA SET rep-sh02
 rs.initiate({ _id: "rep-sh02", members: [{ _id: 0, host: "mongo-sh02-01:28117" }, { _id: 1, host: "mongo-sh02-02:28118" }, { _id: 2, host: "mongo-sh02-03:28119" } ]});
 
-// INIZIALIZAZIONE REPLICA SET rep-cs
+// INIZIALIZAZIONE CONFIG SERVER rep-cs
 rs.initiate({ _id: "rep-cs", members: [ { _id: 0, host: "mongo-cs-01:28007" }, { _id: 1, host: "mongo-cs-02:28008" }, { _id: 2, host: "mongo-cs-03:28009" } ]});
 
 
