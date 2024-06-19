@@ -8,6 +8,11 @@ rs.initiate({ _id: "rep-sh02", members: [
     { _id: 0, host: "mongo-sh02-01:28117" }, 
     { _id: 1, host: "mongo-sh02-02:28118" }, 
     { _id: 2, host: "mongo-sh02-03:28119" } ]});
+
+rs.initiate({ _id: "rep-cs", members: [ 
+    { _id: 0, host: "mongo-cs-01:28007" }, 
+    { _id: 1, host: "mongo-cs-02:28008" }, 
+    { _id: 2, host: "mongo-cs-03:28009" } ]});
 */
 
 // INIZIALIZAZIONE REPLICA SET rep-sh01
@@ -16,30 +21,15 @@ rs.initiate({ _id: "rep-sh01", members: [{ _id: 0, host: "mongo-sh01-01:28017" }
 // INIZIALIZAZIONE REPLICA SET rep-sh02
 rs.initiate({ _id: "rep-sh02", members: [{ _id: 0, host: "mongo-sh02-01:28117" }, { _id: 1, host: "mongo-sh02-02:28118" }, { _id: 2, host: "mongo-sh02-03:28119" } ]});
 
+// INIZIALIZAZIONE REPLICA SET rep-cs
+rs.initiate({ _id: "rep-cs", members: [ { _id: 0, host: "mongo-cs-01:28007" }, { _id: 1, host: "mongo-cs-02:28008" }, { _id: 2, host: "mongo-cs-03:28009" } ]});
 
 
 
-rs.initiate({ _id: "repMongoCorso", members: [ { _id: 0, host: "mongo1:27117" }, { _id: 1, host: "mongo2:27118" }, { _id: 2, host: "mongo3:27119" } ]});
 
-rs.initiate({ 
-    _id: "repMongoCorso", 
-    members: [{ 
-        _id: 0, 
-        host: "mongo1:27117",
-        priority: 1 
-    }, { 
-        _id: 1, 
-        host: "mongo2:27118",
-        priority: 1
-    }, { 
-        _id: 2, 
-        host: "mongo3:27119",
-        priority: 0,
-        hidden : true,
-        // arbiterOnly : true,
-    }]});
 
-    rs.add({ _id: 3,  host: "mongo4:27120", priority: 0})
+
+
 
 use admin
 

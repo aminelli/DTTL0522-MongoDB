@@ -15,3 +15,13 @@ docker run -d -p 28119:28119 --name mongo-sh02-03 --hostname mongo-sh02-03 --net
 
 rem mongosh --port 28017 --eval "db.runCommand({ ping: 1 })"
 
+
+REM CREAZIONE REP SET CONFIG SERVERS: mongo-cs-rp
+docker run -d -p 28007:28007 --name mongo-cs-01 --hostname mongo-cs-01 --network net-mongo-sharded-cluster mongo mongod --configsvr --replSet rep-cs --bind_ip localhost,mongo-cs-01 --port 28007
+docker run -d -p 28008:28008 --name mongo-cs-02 --hostname mongo-cs-02 --network net-mongo-sharded-cluster mongo mongod --configsvr --replSet rep-cs --bind_ip localhost,mongo-cs-02 --port 28008
+docker run -d -p 28009:28009 --name mongo-cs-03 --hostname mongo-cs-03 --network net-mongo-sharded-cluster mongo mongod --configsvr --replSet rep-cs --bind_ip localhost,mongo-cs-03 --port 28009
+
+
+REM CREAZIONE ISTANZE MONGOS
+docker run -d -p 29001:29001 --name mongos-route-01 --hostname mongos-route-01 --network net-mongo-sharded-cluster mongo mongos --configdb rep-cs/mongo-cs-01:28007,mongo-cs-02:28008,mongo-cs-03:28009 --bind_ip localhost,mongos-route-01 --port 29001
+docker run -d -p 29002:29002 --name mongos-route-02 --hostname mongos-route-02 --network net-mongo-sharded-cluster mongo mongos --configdb rep-cs/mongo-cs-01:28007,mongo-cs-02:28008,mongo-cs-03:28009 --bind_ip localhost,mongos-route-02 --port 29002
