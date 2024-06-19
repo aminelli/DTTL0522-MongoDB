@@ -12,3 +12,6 @@ REM CREAZIONE SHARD 2: mongo-sh02
 docker run -d -p 28117:28117 --name mongo-sh02-01 --hostname mongo-sh02-01 --network net-mongo-sharded-cluster mongo mongod --shardsvr --replSet rep-sh02 --bind_ip localhost,mongo-sh02-01 --port 28117
 docker run -d -p 28118:28118 --name mongo-sh02-02 --hostname mongo-sh02-02 --network net-mongo-sharded-cluster mongo mongod --shardsvr --replSet rep-sh02 --bind_ip localhost,mongo-sh02-02 --port 28118
 docker run -d -p 28119:28119 --name mongo-sh02-03 --hostname mongo-sh02-03 --network net-mongo-sharded-cluster mongo mongod --shardsvr --replSet rep-sh02 --bind_ip localhost,mongo-sh02-03 --port 28119
+
+rem mongosh --port 27017 --eval "db.runCommand({ ping: 1 })"
+
