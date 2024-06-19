@@ -64,11 +64,14 @@ db.testshard2.configureQueryAnalyzer({ mode: "full", samplesPerSecond: 10 })
 
 db.testshard2.analyzeShardKey({ _id : 1 })
 
+/*
 [minKey, maxKey]
 
 [minKey, "2022-01-01T00:00:00Z"] , ["2022-01-01T00:00:00Z", maxKey]
 
 minKey, "2022-01-01T00:00:00Z"] , ["2022-01-01T00:00:00Z", "2023-03-18T12:47:00Z"], ["2023-03-18T12:47:00Z", maxKey]
-
+*/
 
 sh.enableSharding("dbprova2")
+sh.shardCollection("dbprova2.airbnb", { "address.country_code" : 1 } )
+sh.status()
