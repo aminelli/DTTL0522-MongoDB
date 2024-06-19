@@ -50,7 +50,7 @@ db.testshard.insertMany( [
   { _id: ISODate( "2022-03-18T12:50:00Z" ), "quantity": 1, "totalOrderPrice": 10 },
 ])
 
-sh.enableSharding("dbprova")+
+sh.enableSharding("dbprova")
 sh.shardCollection("dbprova.testshard2", { _id : 1 } )
 sh.splitAt("dbprova.testshard2", { _id : ISODate( "2022-01-01T00:00:00Z" ) } )
 sh.splitAt("dbprova.testshard2", { _id : ISODate( "2023-01-01T00:00:00Z" ) } )
@@ -60,3 +60,15 @@ db.testshard2.insertMany( [
   { _id: ISODate( "2023-03-18T12:47:00Z" ), "quantity": 5, "totalOrderPrice": 50 },
   { _id: ISODate( "2024-03-18T12:50:00Z" ), "quantity": 1, "totalOrderPrice": 10 },
 ])
+db.testshard2.configureQueryAnalyzer({ mode: "full", samplesPerSecond: 10 })
+
+db.testshard2.analyzeShardKey({ _id : 1 })
+
+[minKey, maxKey]
+
+[minKey, "2022-01-01T00:00:00Z"] , ["2022-01-01T00:00:00Z", maxKey]
+
+minKey, "2022-01-01T00:00:00Z"] , ["2022-01-01T00:00:00Z", "2023-03-18T12:47:00Z"], ["2023-03-18T12:47:00Z", maxKey]
+
+
+sh.enableSharding("dbprova2")
