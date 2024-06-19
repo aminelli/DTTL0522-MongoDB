@@ -9,8 +9,11 @@ rs.initiate({ _id: "rep-sh02", members: [
     { _id: 1, host: "mongo-sh02-02:28118" }, 
     { _id: 2, host: "mongo-sh02-03:28119" } ]});
 */
+
+// INIZIALIZAZIONE REPLICA SET rep-sh01
 rs.initiate({ _id: "rep-sh01", members: [{ _id: 0, host: "mongo-sh01-01:28017" }, { _id: 1, host: "mongo-sh01-02:28018" }, { _id: 2, host: "mongo-sh01-03:28019" } ]});
 
+// INIZIALIZAZIONE REPLICA SET rep-sh02
 rs.initiate({ _id: "rep-sh02", members: [{ _id: 0, host: "mongo-sh02-01:28117" }, { _id: 1, host: "mongo-sh02-02:28118" }, { _id: 2, host: "mongo-sh02-03:28119" } ]});
 
 
