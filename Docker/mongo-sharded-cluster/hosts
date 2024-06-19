@@ -1,0 +1,14 @@
+127.0.0.1		mongo-sh01-01
+127.0.0.1		mongo-sh01-02
+127.0.0.1		mongo-sh01-03
+
+127.0.0.1		mongo-sh02-01
+127.0.0.1		mongo-sh02-02
+127.0.0.1		mongo-sh02-03
+
+127.0.0.1		mongo-cs-01
+127.0.0.1		mongo-cs-02
+127.0.0.1		mongo-cs-03
+
+127.0.0.1		mongos-route-01
+127.0.0.1		mongos-route-02

@@ -35,7 +35,6 @@ sh.addShard("rep-sh02/mongo-sh02-01:28117,mongo-sh02-02:28118,mongo-sh02-03:2811
 
 
 
-
 use admin
 
 /*
