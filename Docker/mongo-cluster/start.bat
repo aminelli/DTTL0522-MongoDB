@@ -10,3 +10,5 @@ docker run -d -p 27119:27017 --name mongo3 --network net-mongo-cluster mongo mon
 
 
 docker exec -it mongo1 mongosh --eval "rs.initiate({ _id: \"repMongoCorso\", members: [ { _id: 0, host: \"mongo1\" }, { _id: 1, host: \"mongo2\" }, { _id: 2, host: \"mongo3\" } ]})"
+
+docker exec -it mongo1 mongosh --eval "rs.status()"
