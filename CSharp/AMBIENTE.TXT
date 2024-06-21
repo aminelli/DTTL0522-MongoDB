@@ -2,6 +2,10 @@
 NOTE: Comando per aviare un'istanza mongo dedicata agli esempi c#
 docker run -d --name mongodbcs -h mongodbcs --network net-mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=Corso2024 mongo
 
+mongodb://root:Corso2024@localhost:27017/?tls=false
+
 Dipendenze dotnet:
 https://www.mongodb.com/docs/drivers/csharp-drivers/
+dotnet add package MongoDB.Driver
+
 
