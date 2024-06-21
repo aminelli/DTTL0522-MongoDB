@@ -88,6 +88,18 @@ namespace ConsoleMongo01.Entities.Test01
 
     }
 
-   
+
+    public class Book {
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public bool InStock { get; set; }
+    }
+
+    public class Film
+    {
+        public string Title { get; set; }
+        public string Director { get; set; }
+        public bool InStock { get; set; }
+    }
 
 }

@@ -15,7 +15,7 @@ namespace ConsoleMongo01.Test
     public static class Test01
     {
 
-        static string CONN_STRING = "mongodb://root:Corso2024@localhost:27017/?tls=false";
+        static string CONN_STRING = "mongodb://root:Corso2024@localhost:27017/?tls=false&retryWrites=false";
 
         public static void FirstConn() {
 
@@ -122,8 +122,6 @@ namespace ConsoleMongo01.Test
 
         }
 
-
-
         static async Task Studio3T_Test()
         {
             // richiamo del metodo:  Test01.Studio3T_Test().Wait();
@@ -148,7 +146,6 @@ namespace ConsoleMongo01.Test
                 }
             }
         }
-
 
         public static async Task TestAggregation01()
         {
@@ -228,7 +225,6 @@ namespace ConsoleMongo01.Test
             }
         }
 
-
         public static async Task TestAggregation03()
         {
 
@@ -274,7 +270,67 @@ namespace ConsoleMongo01.Test
             }
         }
 
+        public static void TestTrans01()
+        {
 
+            var connString = "mongodb://docenteRootAdmin:Corso2024@localhost:27118,localhost:27117,localhost:27119/?tls=false";
+
+            Console.WriteLine("START => TestTrans01");
+
+            var dbName = "provadb01";
+            var collNameBooks = "books";
+            var collNameFilms = "films";
+
+            var client = new MongoClient(connString);
+
+            var db = client.GetDatabase(dbName);
+
+            var collectionBooks = db.GetCollection<Book>(collNameBooks);
+            var collectionFilms = db.GetCollection<Film>(collNameFilms);
+
+
+            using (var session = client.StartSession()) {
+
+                session.StartTransaction();
+
+                try
+                {
+
+                    var book = new Book
+                    {
+                        Title = "Libero pensiero su mongodb",
+                        Author = "Tony",
+                        InStock = true
+                    };
+
+                    var film = new Film
+                    {
+                        Title = "Il Signore di mongodb",
+                        Director = "Tony Minels",
+                        InStock = true
+                    };
+
+                    collectionBooks.InsertOne(session, book);
+                    // throw new Exception("Daniele Exception");
+                    collectionFilms.InsertOne(session, film);
+
+                    session.CommitTransaction();
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Errore: " + ex.Message);
+                    session.AbortTransaction();
+                    return;
+                }
+
+            }
+
+
+
+           Console.WriteLine("END => TestTrans01");
+
+        }
     }
 
 }
