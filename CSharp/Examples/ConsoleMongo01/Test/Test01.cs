@@ -148,6 +148,133 @@ namespace ConsoleMongo01.Test
                 }
             }
         }
+
+
+        public static async Task TestAggregation01()
+        {
+
+            var client = new MongoClient(CONN_STRING);
+            var database = client.GetDatabase("sample_restaurants");
+            IMongoCollection<BsonDocument> collection = database.GetCollection<BsonDocument>("restaurants");
+
+            // Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
+
+            var options = new AggregateOptions()
+            {
+                AllowDiskUse = false
+            };
+
+            PipelineDefinition<BsonDocument, BsonDocument> pipeline = new BsonDocument[]
+            {
+                new BsonDocument(
+                        "$group", 
+                        new BsonDocument()
+                        .Add("_id", "$cuisine")
+                        .Add(
+                            "count", 
+                            
+                            new BsonDocument()
+                            .Add("$sum", 1)
+                        ))
+            };
+
+            var cursor = await collection.AggregateAsync<BsonDocument>(pipeline, options);
+            while (await cursor.MoveNextAsync())
+            {
+                var batch = cursor.Current;
+                foreach (BsonDocument document in batch)
+                {
+                    Console.WriteLine(document.ToJson());
+                }
+            }
+        }
+
+        public static async Task TestAggregation02()
+        {
+
+            var client = new MongoClient(CONN_STRING);
+            var database = client.GetDatabase("sample_restaurants");
+            var collection = database.GetCollection<Restaurant>("restaurants");
+
+            // Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
+
+            var options = new AggregateOptions()
+            {
+                AllowDiskUse = false
+            };
+
+            PipelineDefinition<Restaurant, CuisineCounter> pipeline = new BsonDocument[]
+            {
+                new BsonDocument(
+                        "$group",
+                        new BsonDocument()
+                        .Add("_id", "$cuisine")
+                        .Add(
+                            "count",
+
+                            new BsonDocument()
+                            .Add("$sum", 1)
+                        ))
+            };
+
+            var cursor = await collection.AggregateAsync(pipeline, options);
+            while (await cursor.MoveNextAsync())
+            {
+                var batch = cursor.Current;
+                foreach (CuisineCounter document in batch)
+                {
+                    Console.WriteLine(document.ToJson());
+                }
+            }
+        }
+
+
+        public static async Task TestAggregation03()
+        {
+
+            var client = new MongoClient(CONN_STRING);
+            var database = client.GetDatabase("sample_restaurants");
+            var collection = database.GetCollection<Restaurant>("restaurants");
+
+            // Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
+
+            var options = new AggregateOptions()
+            {
+                AllowDiskUse = false
+            };
+
+            PipelineDefinition<Restaurant, CuisineCounter> pipeline = new BsonDocument[]
+            {
+                new BsonDocument(
+                        "$match", 
+
+                        new BsonDocument()
+                        .Add("borough", "Brooklyn"))
+                ,
+                new BsonDocument(
+                        "$group",
+                        new BsonDocument()
+                        .Add("_id", "$cuisine")
+                        .Add(
+                            "count",
+
+                            new BsonDocument()
+                            .Add("$sum", 1)
+                        ))
+            };
+
+            var cursor = await collection.AggregateAsync(pipeline, options);
+            while (await cursor.MoveNextAsync())
+            {
+                var batch = cursor.Current;
+                foreach (CuisineCounter document in batch)
+                {
+                    Console.WriteLine(document.ToJson());
+                }
+            }
+        }
+
+
     }
 
 }

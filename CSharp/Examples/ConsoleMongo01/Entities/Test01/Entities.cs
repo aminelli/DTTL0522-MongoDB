@@ -26,7 +26,9 @@ namespace ConsoleMongo01.Entities.Test01
         [BsonElement("restaurant_id")]
         public string RestaurantId { get; set; }
 
+
         [BsonElement("cuisine")]
+        [BsonRepresentation(BsonType.String)]
         public string Cuisine { get; set; }
 
         [BsonElement("borough")]
@@ -73,5 +75,19 @@ namespace ConsoleMongo01.Entities.Test01
         [BsonElement("score")]
         public float? Score { get; set; }
     }
+
+    public class CuisineCounter
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
+        public string Id { get; set; }
+
+        [BsonElement("count")]
+        public int? Count { get; set; }
+
+
+    }
+
+   
 
 }
