@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMongo01", "ConsoleMongo01\ConsoleMongo01.csproj", "{ECB44DC1-5722-4A6A-AA0D-107D8F82255E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMongo01", "ConsoleMongo01\ConsoleMongo01.csproj", "{ECB44DC1-5722-4A6A-AA0D-107D8F82255E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiMongo01", "WebApiMongo01\WebApiMongo01.csproj", "{D095E2ED-FC96-4B8A-8AF3-4C06CC945181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ECB44DC1-5722-4A6A-AA0D-107D8F82255E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB44DC1-5722-4A6A-AA0D-107D8F82255E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB44DC1-5722-4A6A-AA0D-107D8F82255E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D095E2ED-FC96-4B8A-8AF3-4C06CC945181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D095E2ED-FC96-4B8A-8AF3-4C06CC945181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D095E2ED-FC96-4B8A-8AF3-4C06CC945181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D095E2ED-FC96-4B8A-8AF3-4C06CC945181}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
