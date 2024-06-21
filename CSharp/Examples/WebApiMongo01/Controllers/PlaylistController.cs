@@ -4,9 +4,9 @@ using WebApiMongo01.Services;
 
 namespace WebApiMongo01.Controllers
 {
-    [Controller]
+    [ApiController]
     [Route("api/[controller]")]
-    public class PlaylistController : Controller
+    public class PlaylistController : ControllerBase
     {
 
         private readonly MongoDBServices _mongoDBService;
@@ -33,9 +33,25 @@ namespace WebApiMongo01.Controllers
             );
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id) { 
+            await _mongoDBService.DeleteAsync(id);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(string id, [FromBody] Playlist rec)
+        {
+            await _mongoDBService.UpdateAsync(id, rec);
+            return NoContent();
+        }
 
 
-
+        [HttpPut("addMovie/{id}")]
+        public async Task<IActionResult> AddMovieToPlaylistAsync(string id, [FromBody] string movieId) {
+            await _mongoDBService.AddMovieToPlaylistAsync(id, movieId);
+            return NoContent();
+        }
 
     }
 

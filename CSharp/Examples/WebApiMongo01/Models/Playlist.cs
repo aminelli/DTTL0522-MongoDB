@@ -8,7 +8,7 @@ namespace WebApiMongo01.Models
     {
 
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         public string? Id { get; set; }
 
         public string username { get; set; } = null!;

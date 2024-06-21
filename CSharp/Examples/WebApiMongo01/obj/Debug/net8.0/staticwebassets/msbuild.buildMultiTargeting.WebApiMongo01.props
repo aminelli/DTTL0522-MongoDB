@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WebApiMongo01.props" />
+</Project>
